@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en"> <!-- language english -->
+<head>
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link rel="stylesheet" href="../static/css/styles.css">
+  <title> Match for Friends </title>
+</head>
+<header>
+    <!-- img src="name-of-the-photo.png" width=300px height=auto> // add logo or photo -->
+    <nav class="navigationBar">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="match.html">Find your Match</a>
+        <a href="profile.html" class="right">Profile</a>
+        <a href="login.html" class="right">Login</a>
+        <a href="signup.html" class="right">Signup</a>
+    </nav>
+</header> 
+<body>
+    <form method="POST" action="/login">
+        <div class="imgcontainer">
+            <img src="../static/img/profile_pic.jpeg" alt="Profile Picture" class="profile_pic"> 
+        </div>
+
+        <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
+            
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+
+            <button type="submit" class="loginbtn">Login</button>
+            <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+        </div>
+    
+        <div class="container" style="background-color:#f1f1f1">
+            <button type="button" class="cancelbtn">Cancel</button>
+            <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+    </form>
+        
+</body>
