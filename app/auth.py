@@ -3,8 +3,8 @@ from flask import Blueprint, render_template, redirect, url_for, request, flash
 from flask_login import login_user, login_required, logout_user
 from werkzeug.security import generate_password_hash, check_password_hash
 
-from app.Foodprint import db, AddFoodForm
-from app import App
+from app.match import db 
+from app import app
 from app.models import User
 
 loggedInUser = None
@@ -24,12 +24,9 @@ def logout():
     logout_user()
     return redirect(url_for('auth.login'))
 
-
 @auth.route("/home", methods=["POST", "GET"])
 def home():
-    thisweek = App.totals()
-    form = AddFoodForm()
-    return render_template("home.html", thisweek_CO2=thisweek["CO2"], thisweek_water=thisweek["water"], thisweek_plastic=thisweek["plastic"], form=form)
+    return render_template("home.html")
 
 
 @auth.route('/signup', methods=['POST'])

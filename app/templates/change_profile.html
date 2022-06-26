@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block bodycontent %}
+
+<h2>new Username</h2>
+<div class="box">
+    <form method="POST" action="/usernameChange">
+        <div class="field">
+            <div class="control">
+                <input class="input is-large" type="username" name="username" placeholder="Your new Username" autofocus="">
+            </div>
+        </div>
+        <div class="field">
+            <div class="control">
+                <input class="input is-large" type="password" name="password" placeholder="Your current Password" autofocus="">
+            </div>
+        </div>
+        <form action="/usernameChange/" method="POST">
+            <button class="button is-block is-info is-large is-fullwidth" name="usernameChangeConfirm" type="submit">Change Username</button>
+        </form>
+    </form>
+</div>
+
+<h2>Change Password</h2>
+<form action="/Password">
+    <button class="button is-block is-info is-large is-fullwidth" name="passwordChange" , type="submit">Change Password</button>
+</form>
+<h2>Change Username</h2>
+<form action="/User">
+    <button class="button is-block is-info is-large is-fullwidth" name="usernameChange" type="submit">Change Username</button>
+</form>
+<h2>Logout</h2>
+<form action="/logout">
+    <button class="button is-block is-info is-large is-fullwidth" name="logout" type="submit">Logout</button>
+</form>
+
+{% endblock %}

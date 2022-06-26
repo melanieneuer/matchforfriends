@@ -2,14 +2,13 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 
-# init SQLAlchemy so we can use it later in our models
 db = SQLAlchemy()
 login_manager = LoginManager()
 
 def create_app():
     app = Flask(__name__)
 
-    app.config['SECRET_KEY'] = 'Gter4563ng'
+    app.config['SECRET_KEY'] = 'verysecretkey'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 

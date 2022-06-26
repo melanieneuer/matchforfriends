@@ -1,38 +1,37 @@
-<!-- {% extends 'base.html' %}
-{% block bodycontent %} // Not working yet--> 
-
 <!DOCTYPE html>
 <html lang="en"> <!-- language english -->
 <head>
   <meta charset="UTF-8"> 
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <link rel="stylesheet" href="../static/css/styles.css">
-  <title>Match for Friends</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
+    </script>
+  <title> Match for Friends </title>
 </head>
 <header>
     <!-- img src="name-of-the-photo.png" width=300px height=auto> // add logo or photo -->
-  <nav class="navigationBar">
-      <a href="/">Home</a>
-      <a href="about.html">About</a>
-      <a href="match.html">Find your Match</a>
-      <a href="profile.html" class="right">Profile</a>
-      <a href="login.html" class="right">Login</a>
-      <a href="signup.html" class="right">Signup</a>
-  </nav>
-</header>
+    <nav class="navigationBar">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="match.html">Find your Match</a>
+        <a href="profile.html" class="right">Profile</a>
+        <a href="login.html" class="right">Login</a>
+        <a href="signup.html" class="right">Signup</a>
+    </nav>
+</header> 
 <body>
   <h1> Match for Friends </h1>
   <h2> This is an app for finding friends. </h2>
   <p> Sign up with us to find new friends that match you! It only takes 2 minutes.</p>
-  <button a href="login.html" class="homebtn signup">Sign Up</button> 
+  <a href="signup.html"><button class="homebtn signup">Sign Up</button></a>
   <p> Already signed up? Log in to find friends!</p>
-  <button a href="login.html" class="homebtn login">Login</button>
+  <a href="login.html"><button class="homebtn login">Login</button></a>
 
+</body>
 <footer> 
   <p> Copyright 2022 </p>
 </footer>
+
 </body>
 </html>
-
-
-<!-- this is a comment -->
