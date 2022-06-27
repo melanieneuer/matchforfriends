@@ -16,16 +16,17 @@ def create_app():
     login_manager.init_app(app)
     login_manager.login_view = 'login'
 
-    # blueprint for auth routes in our app
     from .auth import auth as auth_blueprint
     app.register_blueprint(auth_blueprint)
 
-    # blueprint for non-auth parts of app
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
     
     from .match import match as match_blueprint
     app.register_blueprint(match_blueprint)
+    
+    from .forms import forms as forms_blueprint
+    app.register_blueprint(forms_blueprint)
 
     return app
 

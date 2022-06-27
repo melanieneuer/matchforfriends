@@ -12,15 +12,24 @@
 <header>
     <!-- img src="name-of-the-photo.png" width=300px height=auto> // add logo or photo -->
     <nav class="navigationBar">
-        <a href="home.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="match.html">Find your Match</a>
-        <a href="profile.html" class="right">Profile</a>
-        <a href="login.html" class="right">Login</a>
-        <a href="signup.html" class="right">Signup</a>
+        <a href="home">Home</a>
+        <a href="about">About</a>
+        <a href="match">Find your Match</a>
+        <a href="profile" class="right">Profile</a>
+        <a href="login" class="right">Login</a>
+        <a href="signup" class="right">Signup</a>
     </nav>
 </header> 
 <body>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class='alert alert-{{ category }}'>
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
   {% block bodycontent %}
   {% endblock %}
 <footer> 

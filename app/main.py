@@ -16,8 +16,8 @@ from . import db
 
 main = Blueprint('main', __name__)
 
-
 @main.route("/",  methods=["POST", "GET"])
+
 @main.route('/login')
 def login():
     return render_template('login.html')

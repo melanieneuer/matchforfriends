@@ -1,29 +1,57 @@
 {% extends "base.html" %}
 {%block bodycontent%}
 
-<h1> Login </h1>
-<form method="POST" action="/login">
-    <div class="imgcontainer">
-        <img src="../static/img/profile_pic.jpeg" alt="Profile Picture" class="profile_pic"> 
-    </div>
+  <div>
+    <form method="POST" action="">
+      {{ form.hidden_tag() }}
+      <fieldset class="form-group">
+        <legend class="border-bottom mb-4">Join Today</legend>
+        <div class="form-group">
+          {{ form.email.label(class="form-control-label")}}
+          
+          {% if form.email.errors %}
+            {{ form.email(class="form control form-control-lg is-invalid")}}
+            <div class="invalid-feedback">
+              {% for errors in form.email.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.email(class="form-control form control-lg")}}
+          {% endif %}
+        </div>
+        <div class="form-group">
+          {{ form.password.label(class="form-control-label")}}
 
-    <div class="container">
-        <label for="uname"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="uname" required>
-        
-        <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required>
+          {% if form.password.errors %}
+            {{ form.password(class="form control form-control-lg is-invalid")}}
+            <div class="invalid-feedback">
+              {% for errors in form.password.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.password(class="form-control form control-lg")}}
+          {% endif %}
+        </div>
+        <div class="form-check">
+            {{ form.remember(class="form-check-input")}}
+            {{ form.remember.label(class="form-check-label")}}
+        </div>
+      </fieldset>
+      <div class="form-group">
+        {{ form.submit(class="btn btn-outline.info")}}
+      </div> 
+      <small class="text-muted ml-2">
+          <a href="#">Forgot password?</a>
+      </small>
+    </form>
+  </div>
 
-        <button type="submit" class="loginbtn">Login</button>
-        <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-        </label>
-    </div>
+  <div class="border-top pt-3">
+    <small class="text-muted">
+      Need to create an account? <a class="ml-2" href="{{ url_for('auth.signup') }}">Sign up now</a>
+    </small>
+  </div>
 
-    <div class="container" style="background-color:#f1f1f1">
-        <button type="button" class="cancelbtn">Cancel</button>
-        <span class="psw">Forgot <a href="#">password?</a></span>
-    </div>
-</form>
-        
 {% endblock %}

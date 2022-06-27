@@ -1,10 +1,12 @@
 from flask import Flask
-from flask import Blueprint, render_template, redirect, url_for, request, flash
+from flask import Blueprint, flash, redirect, render_template, redirect, url_for, request, flash
 from flask_login import login_user, login_required, logout_user
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from app import db
 from app.models import User
+from app.forms import RegistrationForm
+from app.forms import LoginForm
 
 loggedInUser = None
 
@@ -12,24 +14,37 @@ auth = Blueprint('auth', __name__)
 
 @auth.route('/login')
 def login():
-    #return render_template('login.html')
-    return redirect(url_for('auth.login'))
+    form = LoginForm()
+    if form.email.data == "admin@blog.com" and form.password.data == "password":
+        flash("You have been logged in!", "success")
+        return redirect(url_for('auth.home'))
+    else:
+        flash("Login Unsuccessful. Please check unsername and password", "danger")
+    return render_template('login.html', title="Login", form=form)
+    #return redirect(url_for('auth.login'))
 
-@auth.route('/signup')
+@auth.route('/signup', methods=["POST", "GET"])
 def signup():
-    return render_template('signup.html')
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        flash(f'Account created for {form.username.data}!', 'success')
+        return redirect(url_for('auth.home'))
+    return render_template('signup.html', title='Signup', form=form)
 
+"""""
 @auth.route('/logout')
 @login_required
 def logout():
     logout_user()
     return redirect(url_for('auth.login'))
+"""""
 
 @auth.route("/home", methods=["POST", "GET"])
 def home():
-    #return render_template("home.html")
-    return redirect(url_for('auth.home'))
+    return render_template("home.html")
+    #return redirect(url_for('auth.home'))
 
+"""""
 @auth.route('/signup', methods=['POST'])
 def signup_post():
     email = request.form.get('email')
@@ -61,3 +76,20 @@ def login_post():
     global loggedInUser
     loggedInUser = user
     return redirect(url_for('auth.home'))
+"""""
+
+@auth.route('/about')
+def about():
+    return render_template('about.html')
+    #return redirect(url_for('auth.login'))
+
+@auth.route('/match')
+def match():
+    return render_template('match.html')
+    #return redirect(url_for('auth.login'))
+
+@auth.route('/profile')
+def profile():
+    return render_template('profile.html')
+    #return redirect(url_for('auth.login'))
+
