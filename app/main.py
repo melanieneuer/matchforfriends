@@ -4,11 +4,9 @@ from flask_wtf import FlaskForm
 from config import Config
 from wtforms import StringField, PasswordField, SelectField
 from wtforms.validators import InputRequired
-import app.app as App
 import pandas as pd
 import datetime
-from app.quiz import PopQuiz
-from flask import Blueprint, render_template, redirect, url_for, request, flash
+from flask import render_template, redirect, url_for, request, flash
 from flask_login import login_user, login_manager
 from werkzeug.security import generate_password_hash, check_password_hash
 # from app.models import User
@@ -17,6 +15,7 @@ from flask import Blueprint
 from . import db
 
 main = Blueprint('main', __name__)
+
 
 @main.route("/",  methods=["POST", "GET"])
 @main.route('/login')

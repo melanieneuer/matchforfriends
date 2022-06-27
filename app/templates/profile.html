@@ -1,36 +1,14 @@
-<!DOCTYPE html>
-<html lang="en"> <!-- language english -->
-<head>
-  <meta charset="UTF-8"> 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <link rel="stylesheet" href="../static/css/styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <title> Match for Friends </title>
-</head>
-<header>
-    <!-- img src="name-of-the-photo.png" width=300px height=auto> // add logo or photo -->
-    <nav class="navigationBar">
-        <a href="home.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="match.html">Find your Match</a>
-        <a href="profile.html" class="right">Profile</a>
-        <a href="login.html" class="right">Login</a>
-        <a href="signup.html" class="right">Signup</a>
-    </nav>
-</header> 
-<body>
-    <div class="profile">
-    <img src="../static/img/profile_pic.jpeg" alt="Name" class="profile_pic">
-    <h1 class="profile_name">First Name Last Name</h1>
-    <p class="profile_age">Age</p>
-    <p class="profile_location">Location</p>
-    <p class="profile_profession">Profession</p>
-    <p class="profile_bio">tell us something about you!</p>
-    <p><button class="profilebtn">Change Profile</button></p>
-    </div>
+{% extends "base.html" %}
+{%block bodycontent%}
 
-<footer> 
-Copyright 2022
-</footer>
-</body>
-</html>
+<div class="profile">
+<img src="../static/img/profile_pic.jpeg" alt="Name" class="profile_pic">
+<h1 class="profile_name">First Name Last Name</h1>
+<p class="profile_age">Age</p>
+<p class="profile_location">Location</p>
+<p class="profile_profession">Profession</p>
+<p class="profile_bio">tell us something about you!</p>
+<p><button class="profilebtn">Change Profile</button></p>
+</div>
+
+{% endblock %}

@@ -1,41 +1,19 @@
-<!DOCTYPE html>
-<html lang="en"> <!-- language english -->
-<head>
-  <meta charset="UTF-8"> 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <link rel="stylesheet" href="../static/css/styles.css">
-  <title> Match for Friends </title>
-</head>
-<header>
-    <!-- img src="name-of-the-photo.png" width=300px height=auto> // add logo or photo -->
-    <nav class="navigationBar">
-        <a href="home.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="match.html">Find your Match</a>
-        <a href="profile.html" class="right">Profile</a>
-        <a href="login.html" class="right">Login</a>
-        <a href="signup.html" class="right">Signup</a>
-    </nav>
-</header> 
-<body>
-    <div class="container">
-        <form action="/quiz" method="POST" role="form">
-            {% for question in form %}
-                <div class="question">
-                    <h2>{{ question.label }}</h2>
-                </div>
-                <div class="answer">
-                    {{ question }}
-                </div>
-            {% endfor %}
-            <!-- <input type="submit" value="Submit"/> -->
-            <button type="submit">Submit</button>
-        </form>
-    </div>
-<footer> 
-    <p> Copyright 2022 </p>
-</footer>
-    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-</body>
-</html>
+{% extends "base.html" %}
+{%block bodycontent%}
+
+<div class="container">
+    <form action="/match" method="POST" role="form">
+        {% for question in form %}
+            <div class="question">
+                <h2>{{ question.label }}</h2>
+            </div>
+            <div class="answer">
+                {{ question }}
+            </div>
+        {% endfor %}
+        <!-- <input type="submit" value="Submit"/> -->
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+{% endblock %}

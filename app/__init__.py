@@ -23,5 +23,11 @@ def create_app():
     # blueprint for non-auth parts of app
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
+    
+    from .match import match as match_blueprint
+    app.register_blueprint(match_blueprint)
 
     return app
+
+import app.models
+    

@@ -1,4 +1,4 @@
-from app.__init__ import db, create_app
+from app import db, create_app
 
 app = create_app()
 db.create_all(app=app)

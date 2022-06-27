@@ -1,23 +1,20 @@
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, Blueprint, render_template, redirect, url_for
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
+#Bootstrap(app)
 
-app = Flask(__name__)
+match = Blueprint('match', __name__)
 
-app.config['SECRET_KEY'] = 'verysecretkey'
-
-Bootstrap(app)
-
-class NameForm(FlaskForm):
+class match_form(FlaskForm):
     name = StringField('How do you drink your coffee?', validators=[DataRequired()])
     submit = SubmitField('Submit')
 
-@app.route('/', methods=['GET', 'POST'])
+@match.route('/', methods=['GET', 'POST'])
 def index():
     names = get_names(COFFEE)
-    form = NameForm()
+    form = match_form()
     message = ""
     if form.validate_on_submit():
         name = form.name.data
