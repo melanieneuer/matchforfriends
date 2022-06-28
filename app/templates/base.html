@@ -21,8 +21,14 @@
           <a href="about">About</a>
           <a href="match">Find your Match</a>
           <a href="profile" class="right">Profile</a>
+      </nav>   
+      <nav class='navigationBar'>
+          {% if current_user.authenticated %}
+          <a href="logout" class="right">Logout</a>
+          {% else %}
           <a href="login" class="right">Login</a>
           <a href="signup" class="right">Signup</a>
+          {% endif %}
       </nav>
   </header> 
   <body>

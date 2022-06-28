@@ -1,9 +1,13 @@
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
+from flask_bcrypt import Bcrypt
+from flask_sqlalchemy import SQLAlchemy
+
+#from models import User, Match_Data
 
 db = SQLAlchemy()
 login_manager = LoginManager()
+bcrypt = Bcrypt()
 
 def create_app():
     app = Flask(__name__)
@@ -28,4 +32,3 @@ def create_app():
     return app
 
 import app.models
-    
