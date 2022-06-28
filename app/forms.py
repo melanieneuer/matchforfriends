@@ -19,3 +19,10 @@ class LoginForm(FlaskForm):
     password = PasswordField("Password", validators = [DataRequired()])
     remember = BooleanField("Remember Me")
     submit = SubmitField("Log in")
+
+class MatchForm(FlaskForm):
+    fav_food = StringField("What is your favorite food?", validators = [DataRequired()])
+    fav_movie = StringField("What is your favorite movie?", validators = [DataRequired()])
+    fav_holiday = StringField("What is your favorite holiday destination?", validators = [DataRequired()])
+    coffee_routine = StringField("How do you drink your coffee?", validators = [DataRequired()])
+    submit = SubmitField("Submit your answers.")
