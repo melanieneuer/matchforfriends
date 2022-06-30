@@ -1,14 +1,15 @@
 {% extends "base.html" %}
 {%block bodycontent%}
 
-<div class="profile">
-<img src="../static/img/profile_pic.jpeg" alt="Name" class="profile_pic">
-<h1 class="profile_name">First Name Last Name</h1>
-<p class="profile_age">Age</p>
-<p class="profile_location">Location</p>
-<p class="profile_profession">Profession</p>
-<p class="profile_bio">tell us something about you!</p>
-<p><button class="profilebtn">Change Profile</button></p>
+<div class="content-section">
+    <div class="media">
+        <div class="media">
+            <img class="rounded-circle account-img" src="{{ image_file }}">
+            <div class="media-body"></div>
+            <h2 class="account-heading">{{ current_user.username }}</h2>
+            <p class="text-secondary">{{ current_user.email }}</p>
+        </div>
+    </div>
 </div>
 
 {% endblock %}
