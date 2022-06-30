@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {%block bodycontent%}
 
-<div class="container">
+<div>
+  <h1>Find your match!</h1>
     <form method="POST" action="">
       {{ form.hidden_tag() }}
-      <fieldset class="form-group">
-        <legend class="border-bottom mb-4">Find your match!</legend>
+      <div class="container">
         <div class="form-group">
             {{ form.fav_food.label(class="form-control-label")}}
             {{ form.fav_food(class="form-control form control-lg")}}
@@ -22,10 +22,11 @@
             {{ form.coffee_routine.label(class="form-control-label")}}
             {{ form.coffee_routine(class="form-control form control-lg")}}
         </div>
-      </fieldset>
-      <div class="form-group">
-            {{ form.submit(class="btn btn-outline.info")}}
-      </div> 
+        <div>
+          {{ form.submit(class="btn btn-outline.info")}}
+        </div> 
+      </div>
+      
     </form>
   </div>
 

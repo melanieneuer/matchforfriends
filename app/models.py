@@ -1,5 +1,6 @@
-from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy 
 from sqlalchemy import ForeignKey
+from sqlalchemy.orm import relationship
 from flask_login import UserMixin
 
 from app import db, login_manager
@@ -7,7 +8,7 @@ from app import db, login_manager
 class User(db.Model, UserMixin):
     __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(20), ForeignKey('username'), unique=True, nullable=False,)
+    username = db.Column(db.String(20), unique=True, nullable=False,)
     email = db.Column(db.String(100), unique=True, nullable=False)
     image_file = db.Column(db.String(20), nullable=False, default="profile_pic.jpeg")
     password = db.Column(db.String(60), nullable=False)
@@ -18,7 +19,6 @@ class User(db.Model, UserMixin):
 class Match_Data(db.Model):
     __tablename__ = "match_data"
     id = db.Column(db.Integer, primary_key=True)
-    username = db.relationship('User', primaryjoin="and_(Match_Data.username==User.username)")
     fav_food = db.Column(db.String(100), nullable=False)
     fav_movie = db.Column(db.String(100), nullable=False)
     fav_holiday = db.Column(db.String(100), nullable=False)

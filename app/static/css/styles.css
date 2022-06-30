@@ -1,5 +1,5 @@
 header { font-family: Helvetica;
-  font-size: 18px;
+  font-size: 14px;
   color: black;
   background-color:rgb(20, 78, 117);
   margin: 0px;
@@ -56,6 +56,10 @@ a { font-size: 20px;
   text-decoration: underline solid rgb(68, 68, 68);
   }
 
+.small {
+   font-size: 13px;
+ }
+
 /* style for all buttons */
 button {
   background-color: #04AA6D;
@@ -76,13 +80,14 @@ button:hover {
 /* Login Form */
 form {
   border: 3px solid #f1f1f1;
+  margin: 10%;
   }
 
 /* Full-width inputs */
 input[type=text], input[type=password] {
   width: 100%;
   padding: 12px 20px;
-  margin: 8px 0;
+  margin: 25px 0;
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
@@ -115,7 +120,7 @@ img.profile_pic {
 
 /* Add padding to containers */
 .container {
-  padding: 16px;
+  padding: 5%;
 }
 
 /* The "Forgot password" text */

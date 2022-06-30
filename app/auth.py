@@ -47,7 +47,7 @@ def signup():
         user = User(username=form.username.data, email=form.email.data, password=hashed_password)
         db.session.add(user)
         db.session.commit()
-        flash('Your account has been created. You are now able to log in.', 'success')
+        flash('Your account has been created.', 'success')
         return redirect(url_for('auth.login'))
     return render_template('signup.html', title='Signup', form=form)
 
@@ -68,17 +68,20 @@ def match():
 
 @auth.route('/matches')
 def matches():
-    #sql = "SELECT * FROM 'match__data' " \
-    #    "WHERE fav_food = 'pizza'"
-    #cursor.execute(sql)
-    #for dsatz in cursor:
-    #    print (dsatz[2], dsatz[3])
-    #print()
-    #connection.close()
+    sql = "SELECT * FROM 'match_data' " \
+        "WHERE fav_food = 'pizza'"
+    cursor.execute(sql)
+    for dsatz in cursor:
+        print (dsatz[2], dsatz[3])
+    print()
+    connection.close()
     return render_template('matches.html', title='Your Matches')
 
 @auth.route('/profile')
 def profile():
-    image_file = url_for("static", filename="profile_pics/" + current_user.image_file)
-    return render_template('profile.html', title="Profile", image_file=image_file )
+    if current_user.is_authenticated:
+        image_file = url_for("static", filename="img/profile_pics/" + current_user.image_file)
+        return render_template('profile.html', title="Profile", image_file=image_file )
+    else:
+        return redirect(url_for('auth.login'))
 
